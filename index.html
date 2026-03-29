@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exploration Sites — Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #fff; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 1440px; margin: 0 auto; }
+  .header { display: flex; justify-content: space-between; align-items: center; padding: 36px 72px; }
+  .logo-group { display: flex; align-items: center; gap: 12px; }
+  .logo-text { font-size: 18px; font-weight: 600; letter-spacing: 0.06em; }
+  .quarter { font-size: 13px; font-weight: 500; color: #555; letter-spacing: 0.12em; text-transform: uppercase; }
+  .title-block { padding: 0 72px 20px; }
+  .title { font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; line-height: 0.95; letter-spacing: -0.03em; padding-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #888; padding-top: 4px; }
+  .divider { margin: 0 72px; height: 1px; background: #e8e8e8; }
+  .section { display: flex; gap: 60px; align-items: flex-start; padding: 40px 72px; }
+  .section-title-col { width: 320px; flex-shrink: 0; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; }
+  .map-list { font-size: 13px; color: #888; line-height: 1.5; padding-top: 12px; }
+  .services { flex: 1; }
+  .service-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-top: 1px solid #e8e8e8; }
+  .service-name { font-size: 15px; font-weight: 600; }
+  .service-desc { font-size: 14px; color: #555; margin-top: 3px; }
+  .service-price { font-size: 15px; font-weight: 600; flex-shrink: 0; padding-left: 24px; }
+  .service-price .unit { font-size: 11px; font-weight: 400; color: #aaa; }
+  .note { font-size: 14px; color: #888; padding-top: 12px; }
+  .two-col { display: flex; gap: 60px; align-items: flex-start; padding: 40px 72px; }
+  .two-col > div { flex: 1; }
+  .col-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .launch { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 48px 72px; gap: 16px; }
+  .launch-title { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; }
+  .launch-price-row { display: flex; align-items: baseline; gap: 14px; }
+  .launch-price { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; }
+  .badge { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #1a1a1a; padding: 4px 12px; border-radius: 20px; }
+  .launch-desc { font-size: 14px; color: #888; max-width: 460px; line-height: 1.5; }
+  .launch-items { display: flex; gap: 36px; padding-top: 4px; }
+  .launch-items div { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+  .launch-items span { font-size: 14px; font-weight: 500; color: #444; }
+  .launch-items .dim { color: #bbb; }
+  .retainers-section { padding: 40px 72px 24px; }
+  .retainers-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 24px; }
+  .retainer-cards { display: flex; gap: 20px; }
+  .retainer-card { flex: 1; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px 20px; display: flex; flex-direction: column; gap: 4px; }
+  .retainer-card.featured { border: 2px solid #1a1a1a; position: relative; }
+  .retainer-label { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; }
+  .retainer-card.featured .retainer-label { font-weight: 600; color: #1a1a1a; }
+  .retainer-price { font-size: 24px; font-weight: 700; }
+  .retainer-price .mo { font-size: 11px; font-weight: 400; color: #bbb; }
+  .retainer-savings { font-size: 9px; font-weight: 500; }
+  .retainer-spacer { height: 6px; }
+  .retainer-item { font-size: 14px; color: #555; line-height: 1.8; border-top: 1px solid #eee; padding-top: 5px; }
+  .popular-badge { position: absolute; top: -10px; right: 16px; background: #1a1a1a; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+  .footer { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px 72px 36px; gap: 6px; }
+  .footer-legal { font-size: 12px; color: #888; line-height: 1.5; max-width: 600px; }
+  .footer-email { font-size: 13px; color: #666; }
+  @media (max-width: 900px) {
+    .section, .two-col { flex-direction: column; gap: 24px; padding: 32px 24px; }
+    .section-title-col { width: 100%; }
+    .header, .title-block, .launch, .retainers-section, .footer { padding-left: 24px; padding-right: 24px; }
+    .divider { margin: 0 24px; }
+    .retainer-cards { flex-direction: column; }
+    .launch-items { flex-direction: column; gap: 12px; }
+    .title { font-size: 44px; }
+    .section-title, .col-title, .retainers-title { font-size: 32px; }
+    .launch-title { font-size: 36px; }
+    .launch-price { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo-group">
+      <svg width="40" height="40" viewBox="0 0 124.63 124.63" xmlns="http://www.w3.org/2000/svg"><g><g><polygon fill="#040404" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon fill="#040404" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon fill="#040404" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon fill="#040404" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/></g><path fill="#040404" d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path fill="#040404" d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>
+      <span class="logo-text">Exploration Sites</span>
+    </div>
+    <span class="quarter">Q2 2026</span>
+  </div>
+
+  <div class="title-block">
+    <div class="title">Pricing</div>
+    <div class="subtitle">Trusted by hundreds of exploration companies.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-title-col">
+      <div class="section-title">Visualize<br>your data</div>
+      <div class="map-list">Maps:<br>Locators<br>Areaplay<br>Property<br>Geological<br>Geophysical<br>Geochemical<br>Sections<br>3D<br>&amp; more</div>
+    </div>
+    <div class="services">
+      <div class="service-row"><div><div class="service-name">Map Design</div><div class="service-desc">We collaborate with your leadership, technical, and IR teams to create visually appealing maps.</div></div><div class="service-price">$1,200<span class="unit">/map</span></div></div>
+      <div class="service-row"><div><div class="service-name">Isometric Model</div><div class="service-desc">3D isometric view with satellite or hillshade, geology, drill hole traces, gradeshells or block models.</div></div><div class="service-price">$2,000</div></div>
+      <div class="service-row"><div><div class="service-name">Leapfrog Geo Map</div><div class="service-desc">Publication-ready figures from your existing Leapfrog model. Up to 3 figures.</div></div><div class="service-price">$1,500</div></div>
+      <div class="service-row"><div><div class="service-name">Data Compilation</div><div class="service-desc">We connect with your technical team and research up-to-date datasets.</div></div><div class="service-price">$1,600</div></div>
+      <div class="service-row"><div><div class="service-name">Updates</div><div class="service-desc">Billed by the half-hour rate.</div></div><div class="service-price">$100<span class="unit">/half-hour</span></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-title-col">
+      <div class="section-title">Tell a compelling<br>story</div>
+    </div>
+    <div class="services">
+      <div class="service-row"><div><div class="service-name">Presentation Design</div><div class="service-desc">A beautifully laid out slide deck. High-quality imagery, custom icons and infographics to reinforce your brand.</div></div><div class="service-price">$5,000</div></div>
+      <div class="service-row"><div><div class="service-name">Development</div><div class="service-desc">Comprehensive corporate deck development, including data analysis and copy editing.</div></div><div class="service-price">$8,000</div></div>
+      <div class="service-row"><div><div class="service-name">Fact Sheet</div><div class="service-desc">A condensed snapshot of your company easily digestible for investors.</div></div><div class="service-price">$1,200</div></div>
+      <div class="note">Deck maps charged by the map.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-title-col">
+      <div class="section-title">Your digital<br>presence</div>
+    </div>
+    <div class="services">
+      <div class="service-row"><div><div class="service-name">WordPress Site</div><div class="service-desc">Ideal for teams who want flexibility to manage their own content.</div></div><div class="service-price">$12,000</div></div>
+      <div class="service-row"><div><div class="service-name">Webflow Site</div><div class="service-desc">Premium, design-forward with polished animations. Simple, forward-thinking management.</div></div><div class="service-price">$18,000</div></div>
+      <div class="service-row"><div><div class="service-name">Updates/Support</div></div><div class="service-price">$100<span class="unit">/half-hour</span></div></div>
+      <div class="service-row"><div><div class="service-name">Hosting</div><div class="service-desc">Backups, SSL, live metal prices, stock quotes &amp; charts. AWS &amp; Google Cloud.</div></div><div class="service-price">$200<span class="unit">/mo</span></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="two-col">
+    <div>
+      <div class="col-title">Reach &amp; engage</div>
+      <div class="service-row"><div><div class="service-name">CRM Platform</div><div class="service-desc">Email marketing, tracking, surveys, chat bots. Included with Growth &amp; Enterprise.</div></div><div class="service-price" style="font-size:13px;">$200/mo &middot; $100 setup</div></div>
+      <div class="service-row"><div><div class="service-name">Social Media</div><div class="service-desc">Strategic approach to build followers and connections.</div></div><div class="service-price">$4,000</div></div>
+    </div>
+    <div>
+      <div class="col-title">Shape your identity</div>
+      <div class="service-row"><div class="service-name">Logo/Brand Creation</div><div class="service-price">$2,400</div></div>
+      <div class="service-row"><div class="service-name">Event Booths</div><div class="service-price">$1,200</div></div>
+      <div class="service-row"><div><div class="service-name">Individual Graphics</div><div class="service-desc">Infographics, animations, business cards, apparel &mdash; hourly rate.</div></div><div class="service-price">$200</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="launch">
+    <div class="launch-title">Everything you need to launch.</div>
+    <div class="launch-price-row"><span class="launch-price">$24,000</span><span class="badge">Save 20%</span></div>
+    <div class="launch-desc">Everything a new exploration company needs to make a strong first impression with investors, partners, and the market.</div>
+    <div class="launch-items">
+      <div><span>Logo &amp; Brand Creation <span class="dim">$2,400</span></span><span>8 Maps <span class="dim">$9,600</span></span><span>Investor Deck Design <span class="dim">$5,000</span></span></div>
+      <div><span>WordPress Website <span class="dim">$12,000</span></span><span>Fact Sheet <span class="dim">$1,200</span></span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="retainers-section">
+    <div class="retainers-title">Ongoing support</div>
+    <div class="retainer-cards">
+      <div class="retainer-card">
+        <div class="retainer-label">Essentials</div>
+        <div class="retainer-price">$1,500 <span class="mo">/mo</span></div>
+        <div class="retainer-savings">Save 7% &middot; $187.50/hr</div>
+        <div class="retainer-spacer"></div>
+        <div class="retainer-item">8 hours per month</div>
+        <div class="retainer-item">Maps, decks, website updates</div>
+        <div class="retainer-item">Priority 48-hour turnaround</div>
+        <div class="retainer-item">Rollover up to 4 hours</div>
+        <div class="retainer-item">Dedicated coordinator</div>
+      </div>
+      <div class="retainer-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="retainer-label">Growth</div>
+        <div class="retainer-price">$3,000 <span class="mo">/mo</span></div>
+        <div class="retainer-savings">Save 17% &middot; $166.67/hr</div>
+        <div class="retainer-spacer"></div>
+        <div class="retainer-item">18 hours per month</div>
+        <div class="retainer-item">All services included</div>
+        <div class="retainer-item">Hosting included</div>
+        <div class="retainer-item">Priority 48-hour turnaround</div>
+        <div class="retainer-item">CRM access included</div>
+        <div class="retainer-item">Rollover up to 8 hours</div>
+        <div class="retainer-item">Dedicated account manager</div>
+      </div>
+      <div class="retainer-card">
+        <div class="retainer-label">Enterprise</div>
+        <div class="retainer-price">$5,500 <span class="mo">/mo</span></div>
+        <div class="retainer-savings">Save 31% &middot; $137.50/hr</div>
+        <div class="retainer-spacer"></div>
+        <div class="retainer-item">40 hours per month</div>
+        <div class="retainer-item">All services included</div>
+        <div class="retainer-item">Hosting included</div>
+        <div class="retainer-item">CRM access included</div>
+        <div class="retainer-item">Priority 24-hour turnaround</div>
+        <div class="retainer-item">Rollover up to 16 hours</div>
+        <div class="retainer-item">Dedicated account manager</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <div class="footer-legal">Projects are initiated once contract is signed and the deposit has been made, rush fees may apply. GST not included. All prices in CAD</div>
+    <div class="footer-email">info@explorationsites.com</div>
+  </div>
+
+</div>
+</body>
+</html>
