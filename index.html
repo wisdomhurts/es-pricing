@@ -8,18 +8,19 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #fff; -webkit-font-smoothing: antialiased; }
-  .page { max-width: 1440px; margin: 0 auto; }
+  .page { max-width: 1440px; margin: 0 auto; border-top: 4px solid #173559; }
   .header { display: flex; justify-content: space-between; align-items: center; padding: 36px 72px; }
   .logo-group { display: flex; align-items: center; gap: 12px; }
   .logo-text { font-size: 18px; font-weight: 600; letter-spacing: 0.06em; }
-  .quarter { font-size: 13px; font-weight: 500; color: #555; letter-spacing: 0.12em; text-transform: uppercase; }
+  .quarter { font-size: 13px; font-weight: 500; color: #9ecde4; letter-spacing: 0.12em; text-transform: uppercase; }
   .title-block { padding: 0 72px 20px; }
   .title { font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; line-height: 0.95; letter-spacing: -0.03em; padding-bottom: 6px; }
   .subtitle { font-size: 14px; color: #888; padding-top: 4px; }
-  .divider { margin: 0 72px; height: 1px; background: #e8e8e8; }
+  .divider { margin: 0 72px; height: 1px; background: #cfe1e9; }
+  .divider-launch { height: 3px; background: #173559; }
   .section { display: flex; gap: 60px; align-items: flex-start; padding: 40px 72px; }
   .section-title-col { width: 450px; flex-shrink: 0; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; color: #173559; }
   .map-list { font-size: 13px; color: #888; line-height: 1.5; padding-top: 12px; }
   .services { flex: 1; }
   .service-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-top: 1px solid #e8e8e8; }
@@ -30,39 +31,40 @@
   .note { font-size: 14px; color: #888; padding-top: 12px; }
   .two-col { display: flex; gap: 60px; align-items: flex-start; padding: 40px 72px; }
   .two-col > div { flex: 1; }
-  .col-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .col-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 20px; color: #173559; }
   .launch { display: flex; gap: 60px; align-items: flex-start; padding: 40px 72px; }
   .launch-left { width: 618px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; }
-  .launch-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; }
+  .launch-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; color: #173559; }
   .launch-price-row { display: flex; align-items: center; gap: 14px; }
-  .launch-price { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; }
-  .badge { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #1a1a1a; padding: 4px 12px; border-radius: 20px; }
+  .launch-price { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; color: #173559; }
+  .badge { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #173559; padding: 4px 12px; border-radius: 20px; }
   .launch-original { font-size: 22px; color: #bbb; text-decoration: line-through; }
   .launch-desc { font-size: 14px; color: #888; line-height: 1.5; }
   .launch-services { flex: 1; }
   .launch-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-top: 1px solid #e8e8e8; }
+  .launch-row:first-child { border-top: none; }
   .launch-row .item-name { font-size: 15px; font-weight: 600; }
   .launch-row .item-price { font-size: 15px; font-weight: 600; flex-shrink: 0; padding-left: 24px; }
   .retainers-section { padding: 32px 72px 48px; position: relative; }
-  .retainers-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; }
+  .retainers-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; color: #173559; }
   .retainers-subtitle { font-size: 14px; color: #888; line-height: 1.5; margin-top: 12px; }
   .retainer-cards { display: flex; gap: 20px; margin-top: 28px; }
-  .retainer-card { flex: 1; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px 20px; display: flex; flex-direction: column; gap: 4px; }
-  .retainer-card.featured { border: 2px solid #1a1a1a; position: relative; }
+  .retainer-card { flex: 1; border: 1px solid #999; border-radius: 12px; padding: 24px 20px; display: flex; flex-direction: column; gap: 4px; }
+  .retainer-card.featured { border: 2px solid #173559; position: relative; }
   .retainer-label { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; }
   .retainer-card.featured .retainer-label { font-weight: 600; color: #1a1a1a; }
-  .retainer-price { font-size: 24px; font-weight: 900; }
+  .retainer-price { font-size: 24px; font-weight: 900; color: #173559; }
   .retainer-price .mo { font-size: 11px; font-weight: 400; color: #bbb; }
-  .retainer-savings { font-size: 9px; font-weight: 500; }
+  .retainer-savings { font-size: 13px; font-weight: 500; }
   .retainer-spacer { height: 6px; }
   .retainer-item { font-size: 14px; color: #555; line-height: 1.8; border-top: 1px solid #eee; padding-top: 5px; }
-  .popular-badge { position: absolute; top: -10px; right: 16px; background: #1a1a1a; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+  .popular-badge { position: absolute; top: -10px; right: 16px; background: #173559; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
   .cta-section { display: flex; justify-content: center; padding: 16px 72px; }
-  .cta-button { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: #1a1a1a; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 48px; border-radius: 6px; text-decoration: none; letter-spacing: 0.01em; cursor: pointer; border: 2px solid #1a1a1a; transition: background 0.2s, color 0.2s; }
-  .cta-button:hover { background: #1a1a1a; color: #fff; }
+  .cta-button { display: inline-flex; align-items: center; justify-content: center; background: #173559; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 48px; border-radius: 6px; text-decoration: none; letter-spacing: 0.01em; cursor: pointer; border: 2px solid #173559; transition: background 0.2s, color 0.2s; }
+  .cta-button:hover { background: #0f2440; border-color: #0f2440; color: #fff; }
   .footer { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px 72px 36px; gap: 6px; }
   .footer-legal { font-size: 12px; color: #888; line-height: 1.5; }
-  .footer-email { font-size: 13px; color: #666; }
+
   @media (max-width: 900px) {
     .section, .two-col, .launch { flex-direction: column; gap: 24px; padding: 32px 24px; }
     .section-title-col, .launch-left { width: 100%; }
@@ -151,7 +153,7 @@
     </div>
   </div>
 
-  <div class="divider"></div>
+  <div class="divider divider-launch"></div>
 
   <div class="launch">
     <div class="launch-left">
